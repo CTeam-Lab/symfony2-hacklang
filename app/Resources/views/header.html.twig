@@ -1,0 +1,32 @@
+{% block header %}
+    <nav class="main-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="navbar-header">
+                            <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars"></i>
+                            </span>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-menu">
+                        <ul class="menu">
+                            <li><a class="{% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %}"
+                                   href="{{ path("homepage") }}">Home</a></li>
+                            <li><a href="{{ path("post") }}">Features</a>
+                                <ul>
+                                    <li><a href="typography/index.html">Typography</a></li>
+                                    <li><a href="code-highlighting/index.html">Code Highlighting</a></li>
+                                    <li><a href="sample-page/index.html">Sample Page</a></li>
+                                </ul>
+                            </li>
+                            <li><a href={{ path("about") }}>About</a></li>
+                            <li><a href={{ path("contact") }}>Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

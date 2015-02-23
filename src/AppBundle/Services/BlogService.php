@@ -1,0 +1,38 @@
+<?hh
+
+namespace AppBundle\Services;
+
+use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\Post;
+
+/**
+ * @package    hhvm
+ * @category   hhvm
+ * @author     Jorge Meireles
+ * @copyright  (c) 2014 Rocket Internet
+ */
+class BlogService
+{
+
+    /**
+     * @param EntityRepository $repo
+     */
+    public function __construct(EntityRepository $repo) : void
+    {
+        $this->repo = $repo;
+    }
+
+/**
+ *
+ */
+    public function findAll() : array
+    {
+        return $this->repo->findAll();
+    }
+
+    public function findById(int $id) : ?Post
+    {
+
+    }
+
+}

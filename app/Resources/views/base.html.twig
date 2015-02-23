@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+        <title>{% block title %}Cteam-Lab | Where the magic happens! or not!{% endblock %}</title>
+
+        <meta name="description" content="Thoughts, stories and ideas."/>
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+
+        <!-- fav icons -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+        {# Stylesheets #}
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400%7CRoboto+Slab' rel='stylesheet' type='text/css'>
+
+        {% block stylesheets %}
+            {% stylesheets '@appCSS' filter='cssrewrite' %}
+                <link href="{{- asset(asset_url) -}}" rel='stylesheet' type='text/css'>
+            {% endstylesheets %}
+        {% endblock %}
+        <script>
+            /*====================================================
+             THEME SETTINGS & GLOBAL VARIABLES
+             ====================================================*/
+            //  1. Disqus comment settings
+            var disqus_shortname = 'futurathemedemo'; // required: replace example with your forum shortname
+
+            //	2. Sidebar Position
+            var sidebar_left = false; // Set true or flase for positioning sidebar on left
+
+            //  3. Recent Post count
+            var recent_post_count = 3;
+
+            //	4. Google+ badge settings
+            var badge_type = 'page'; // person / page / community ----- three type of google badge
+            var google_plus_url = 'https://plus.google.com/111813546240107028721';
+
+            //	5. Facebook Page Setting
+            var facebook_page_url = 'https://www.facebook.com/gbjsolution';
+
+            //	6. Twitter Setting
+            var twitter_url = 'https://twitter.com/gbjsolution';
+            var twitter_widget_id = '428617072633843712';
+            var number_of_tweet = 3;
+
+            //	7. Mailchimp signup form Setting
+            var mailchimp_form_url = 'http://gbjsolution.us4.list-manage.com/subscribe?u=a63b2fed3ed61b70bf56d1aed&amp;id=1e3806b1d4';
+            var success_message = "Please check your inbox and confirm your email address. Thanks!";
+
+            //	8. Flickr Setting
+            var flickr_id = '52617155@N08';
+        </script>
+
+        {# SEO #}
+        <link rel="canonical" href="/"/>
+        <link rel="next" href="/"/>
+        <link rel="alternate" type="application/rss+xml" title="Futura" href="/"/>
+    </head>
+    <body>
+
+        {% include '::header.html.twig' %}
+
+        <section class="content-wrap">
+            <div class="container">
+                {% block body %}
+                    {# inherits #}
+                {% endblock %}
+            </div>
+        </section>
+
+        {% block javascripts %}
+            {% javascripts '@appJS' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+
+        {% include '::footer.html.twig' %}
+    </body>
+</html>
