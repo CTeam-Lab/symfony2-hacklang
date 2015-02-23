@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @package    hhvm
  * @category   hhvm
- * @author     Jorge Meireles
+ * @author     Cteam
  * @copyright  (c) 2014 Rocket Internet
  *
  *
