@@ -9,7 +9,7 @@ use AppBundle\Entity\Post;
  * @package    hhvm
  * @category   hhvm
  * * @author     Cteam
- * @copyright  (c) 2014 Rocket Internet
+ * @copyright  (c) 2015 Cteam | Ponteiro Team
  */
 class BlogService
 {

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package    hhvm
  * @category   hhvm
  * @author     Cteam
- * @copyright  (c) 2014 Rocket Internet
+ * @copyright  (c) 2015 Cteam | Ponteiro Team
  *
  *
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PostRepository")
