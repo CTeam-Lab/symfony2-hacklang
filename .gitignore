@@ -1,4 +1,4 @@
-.idea/*
+.idea/
 
 /web/bundles/
 /app/bootstrap.php.cache
@@ -41,6 +41,8 @@
 /web/uploads/
 /web/css/*
 /web/js/*
+/web/images/*
+/web/assetic/
 
 # PHPUnit
 /app/phpunit.xml
