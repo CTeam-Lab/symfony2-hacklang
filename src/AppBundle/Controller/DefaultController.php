@@ -1,4 +1,4 @@
-<?hh
+<?php
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -15,12 +15,11 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(): Response
+    public function indexAction()
     {
-
-        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle\Entity\Post');
+        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Post');
         $posts = $blogRepo->findAll();
-
+        
         return $this->render('default/index.html.twig', [
             'posts' => $posts
         ]);
@@ -29,7 +28,7 @@ class DefaultController extends Controller
     /**
     * @Route("/contact", name="contact")
     */
-    public function contactAction(): Response
+    public function contactAction()
     {
         return $this->render('contact.html.twig');
     }
@@ -37,7 +36,7 @@ class DefaultController extends Controller
     /**
      * @Route("/about", name="about")
      */
-    public function aboutAction(): Response
+    public function aboutAction()
     {
         return $this->render('about.html.twig');
     }
@@ -45,7 +44,7 @@ class DefaultController extends Controller
     /**
      * @Route("/post", name="post")
      */
-    public function postAction(): Response
+    public function postAction()
     {
         return $this->render('post.html.twig');
     }
@@ -53,7 +52,7 @@ class DefaultController extends Controller
     /**
      * @Route("/rss/", name="rss")
      */
-    public function rssAction(): Response
+    public function rssAction()
     {
         return new Response();
     }

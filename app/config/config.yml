@@ -102,6 +102,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:
           default:
+            auto_mapping: true
             mappings:
               UserBundle: ~
               SonataUserBundle: ~
