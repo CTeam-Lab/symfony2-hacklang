@@ -50,20 +50,14 @@ security:
                 path:           /admin/logout
             anonymous:          true
 
-        # -> end custom configuration
-
-        # default login area for standard users
-
-        # This firewall is used to handle the public login area
-        # This part is handled by the FOS User Bundle
         main:
             pattern:             .*
             context:             user
             form_login:
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     /admin/login
                 use_forward:    false
-                check_path:     /login_check
+                check_path:     /admin/login_check
                 failure_path:   null
             logout:             true
             anonymous:          true

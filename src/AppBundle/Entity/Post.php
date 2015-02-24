@@ -1,4 +1,4 @@
-<?hh
+<?php
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -29,10 +29,15 @@ class Post
      */
     private $title;
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     /**
      * @return mixed
      */
-    public function getTitle() : ?string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -40,7 +45,7 @@ class Post
     /**
      * @param mixed $title
      */
-    public function setTitle(string $title)
+    public function setTitle($title)
     {
         $this->title = $title;
     }

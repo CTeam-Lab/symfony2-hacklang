@@ -33,6 +33,18 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text: # used to if you plan to use Sonata user routes
 
+sonata_admin:
+    security:
+      handler: sonata.admin.security.handler.acl
+      information:
+          GUEST:    [VIEW, LIST]
+          STAFF:    [EDIT, LIST, CREATE]
+          EDITOR:   [OPERATOR, EXPORT]
+          ADMIN:    [MASTER]
+      admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+      object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
+    title: Cteam Admin
+
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
@@ -42,7 +54,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:   { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme

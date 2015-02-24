@@ -19,7 +19,7 @@ class DefaultController extends Controller
     {
         $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Post');
         $posts = $blogRepo->findAll();
-        
+
         return $this->render('default/index.html.twig', [
             'posts' => $posts
         ]);
