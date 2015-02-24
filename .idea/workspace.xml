@@ -2,75 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbcb0ebd-eb40-46d7-a691-c5990416ba48" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AdminBundle/AdminBundle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AdminBundle/DependencyInjection/AdminBundleExtension.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AdminBundle/Admin/PostAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/admin.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/e378fc3.png" afterPath="$PROJECT_DIR$/web/images/e378fc3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/e378fc3_logo_1.png" afterPath="$PROJECT_DIR$/web/images/e378fc3_logo_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/fontawesome-webfontd41d.eot" afterPath="$PROJECT_DIR$/web/fonts/fontawesome-webfontd41d.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.eot" afterPath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.ttf" afterPath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.woff2" afterPath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.woff2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.woff" afterPath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regulard41d.eot" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regulard41d.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/images/logo.png" afterPath="$PROJECT_DIR$/app/Resources/public/images/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/1571e1d.css" afterPath="$PROJECT_DIR$/web/css/1571e1d.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/1571e1d_part_1.css" afterPath="$PROJECT_DIR$/web/css/1571e1d_part_1.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Services/BlogService.php" afterPath="$PROJECT_DIR$/src/AppBundle/Services/BlogService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Category.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Comment.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Comment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Post.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Repository/PostRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Repository/PostRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/about.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/about.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/js/app.js" afterPath="$PROJECT_DIR$/app/Resources/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appCSS.css" afterPath="$PROJECT_DIR$/web/assetic/appCSS.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appCSS_bootstrap.min_1.css" afterPath="$PROJECT_DIR$/web/assetic/appCSS_bootstrap.min_1.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appCSS_font-awesome.min_2.css" afterPath="$PROJECT_DIR$/web/assetic/appCSS_font-awesome.min_2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appCSS_monokai_sublime_4.css" afterPath="$PROJECT_DIR$/web/assetic/appCSS_monokai_sublime_4.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appCSS_screen_3.css" afterPath="$PROJECT_DIR$/web/assetic/appCSS_screen_3.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS.js" afterPath="$PROJECT_DIR$/web/assetic/appJS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_app_4.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_app_4.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_app_5.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_app_5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_bootstrap.min_1.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_bootstrap.min_1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_bootstrap.min_2.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_bootstrap.min_2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_highlight.pack_3.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_highlight.pack_3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_highlight.pack_4.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_highlight.pack_4.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_jquery.fitvids_2.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_jquery.fitvids_2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_jquery.fitvids_3.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_jquery.fitvids_3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assetic/appJS_jquery.min_1.js" afterPath="$PROJECT_DIR$/web/assetic/appJS_jquery.min_1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/app/Resources/public/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/app/Resources/public/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/partials/comments.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/partials/comments.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/contact.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/contact.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contributors.txt" afterPath="$PROJECT_DIR$/contributors.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dd16937.js" afterPath="$PROJECT_DIR$/web/js/dd16937.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dd16937_part_1.js" afterPath="$PROJECT_DIR$/web/js/dd16937_part_1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy.sh" afterPath="$PROJECT_DIR$/deploy.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/app/Resources/public/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.svg" afterPath="$PROJECT_DIR$/web/fonts/fontawesome-webfonte0a5.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/footer.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/footer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/js/highlight.pack.js" afterPath="$PROJECT_DIR$/app/Resources/public/js/highlight.pack.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/js/jquery.fitvids.js" afterPath="$PROJECT_DIR$/app/Resources/public/js/jquery.fitvids.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/js/jquery.min.js" afterPath="$PROJECT_DIR$/app/Resources/public/js/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/css/hl-styles/monokai_sublime.css" afterPath="$PROJECT_DIR$/app/Resources/public/css/hl-styles/monokai_sublime.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/post.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/post.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/css/screen.css" afterPath="$PROJECT_DIR$/app/Resources/public/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Entity/Group.php" afterPath="$PROJECT_DIR$/src/UserBundle/Entity/Group.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/UserBundle/Entity/User.php" />
     </list>
     <ignored path="hhvm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -144,11 +77,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80406094" vertical-offset="0" max-vertical-offset="1044">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
               <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -166,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Group.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Group.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/Group.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="985">
+              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -219,8 +162,6 @@
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/Group.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Entity/Group.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/config/doctrine/Group.orm.xml" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/config/serializer/Entity.Group.xml" />
         <option value="$PROJECT_DIR$/src/UserBundle/UserBundle.php" />
@@ -229,6 +170,8 @@
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Entity/Group.php" />
       </list>
     </option>
   </component>
@@ -954,14 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018274112" vertical-offset="0" max-vertical-offset="985">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/UserBundle.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.164467" vertical-offset="0" max-vertical-offset="985">
@@ -977,14 +912,6 @@
           <folding>
             <element signature="e#36#71#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,8 +949,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80406094" vertical-offset="0" max-vertical-offset="1044">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
           <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="985">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/Group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="985">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
