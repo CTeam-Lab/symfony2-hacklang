@@ -17,7 +17,8 @@ class DefaultController extends Controller
      */
     public function indexAction(): Response
     {
-        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Post');
+
+        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle\Entity\Post');
         $posts = $blogRepo->findAll();
 
         return $this->render('default/index.html.twig', [
