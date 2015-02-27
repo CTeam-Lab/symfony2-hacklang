@@ -2,7 +2,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Helper\AppHelper;
 use Symfony\Component\Validator\Constraints as Assert;
+use UserBundle\Entity\User;
 
 /**
  * @package    hhvm
@@ -29,9 +31,91 @@ class Post
      */
     private $title;
 
+    /**
+     * @ORM\Column(name="date_created", type="datetime")
+     * @Assert\NotBlank()
+     * @var \DateTime
+     */
+    protected $dateCreated;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     * @Assert\NotBlank()
+     * @var \DateTime
+     */
+    protected $updatedAt;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     */
+    protected $author;
+
+    /**
+     * @ORM\Column(name="slug", type="string")
+     * @var string
+     */
+    protected $slug;
+
+    /**
+     * @ORM\Column(name="content", type="text")
+     * @var text
+     */
+    protected $content;
+
+    /**
+     * @ORM\Column(name="featured", type="boolean", nullable=true)
+     * @var bool
+     */
+    protected $featured = false;
+
+    /**
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
+     * @var boolean
+     */
+    protected $enabled = false;
+
+    /**
+     * @var Category
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category", referencedColumnName="id")
+     * })
+     */
+    protected $category;
+
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isFeatured()
+    {
+        return $this->featured;
+    }
+
+    /**
+     * @param boolean $featured
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 
     /**
@@ -48,6 +132,108 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @throws \InvalidArgumentException
+     * @param \DateTime|string|integer $updatedAt
+     * @return Post *Fluent interface
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = AppHelper::dateFormat($updatedAt);
+    }
+
+    /**
+     * Sets the date this entity was created
+     *
+     * @throws \InvalidArgumentException
+     * @param \DateTime|string|integer $date
+     * @return Post *Fluent interface*
+     */
+    public function setDateCreated($date)
+    {
+        $this->dateCreated = AppHelper::dateFormat($date);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param boolean $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 
 }

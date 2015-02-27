@@ -9,3 +9,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AdminBundle]]
+
+    sonata.admin.category:
+        class: AdminBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [AdminBundle]]
