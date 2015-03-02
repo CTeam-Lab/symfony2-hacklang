@@ -1,6 +1,5 @@
 .idea/
 
-/web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
@@ -50,3 +49,8 @@
 
 # Composer PHAR
 /composer.phar
+
+# Grunt and Bower
+node_modules
+bower_component
+app/Resources/public/vendor
