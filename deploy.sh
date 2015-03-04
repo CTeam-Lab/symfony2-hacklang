@@ -6,3 +6,5 @@ SYMFONY_ENV=prod composer install --no-dev --no-interaction --prefer-dist --no-p
 #app/console doctrine:schema:update --env=prod --force
 app/console assetic:dump web --env=prod
 app/console assets:install web --env=prod
+npm install
+grunt --no-watch
