@@ -92,7 +92,7 @@ module.exports = (grunt) ->
     grunt.config.get('env') == 'dev'
 
   noWatch = ->
-    grunt.config.get('noWatch')
+    grunt.config.get('noWatch') || !isDevEnv()
 
   # when watch is running we should build the vendors only once
   vendorTasks = ['clean:js_assets_vendors', 'concat:vendors']
