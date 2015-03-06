@@ -64,7 +64,7 @@ class PostAdmin extends Admin
      */
     public function preUpdate($post)
     {
-        $post->setUpdatedAt('now');
+        //$post->setUpdatedAt('now');
 
         return $post;
     }
@@ -75,7 +75,7 @@ class PostAdmin extends Admin
      */
     public function prePersist($post)
     {
-        $post->setCreatedAt('now');
+        //$post->setCreatedAt('now');
         $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
         $post->setAuthor($user);
 

@@ -32,27 +32,6 @@ class Post
     private $title;
 
     /**
-     * @ORM\Column(name="date_created", type="datetime")
-     * @Assert\NotBlank()
-     * @var \DateTime
-     */
-    protected $dateCreated;
-
-    /**
-     * @ORM\Column(name="updated_at", type="datetime")
-     * @Assert\NotBlank()
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
-     * @var User
-     *
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
-     */
-    protected $author;
-
-    /**
      * @ORM\Column(name="slug", type="string")
      * @var string
      */
@@ -60,9 +39,13 @@ class Post
 
     /**
      * @ORM\Column(name="content", type="text")
-     * @var text
      */
     protected $content;
+    
+    /**
+    * 
+    */
+    protected $author;
 
     /**
      * @ORM\Column(name="featured", type="boolean", nullable=true)
@@ -119,6 +102,14 @@ class Post
     }
 
     /**
+     *
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
+    /**
      * @return mixed
      */
     public function getTitle()
@@ -132,6 +123,7 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
+        $this->slug = $title;
     }
 
     /**
@@ -162,14 +154,6 @@ class Post
     public function setDateCreated($date)
     {
         $this->dateCreated = AppHelper::dateFormat($date);
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDateCreated()
-    {
-        return $this->dateCreated;
     }
 
     /**
