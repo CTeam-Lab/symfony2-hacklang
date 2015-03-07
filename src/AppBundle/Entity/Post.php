@@ -32,6 +32,25 @@ class Post
     private $title;
 
     /**
+     * @ORM\Column(name="date_created", type="datetime")
+     * @var \DateTime
+     */
+    protected $dateCreated;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     * @var \DateTime
+     */
+    protected $updatedAt;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     */
+    protected $author;
+
+    /**
      * @ORM\Column(name="slug", type="string")
      * @var string
      */
@@ -41,11 +60,6 @@ class Post
      * @ORM\Column(name="content", type="text")
      */
     protected $content;
-    
-    /**
-    * 
-    */
-    protected $author;
 
     /**
      * @ORM\Column(name="featured", type="boolean", nullable=true)
@@ -102,7 +116,7 @@ class Post
     }
 
     /**
-     *
+     * @param $author
      */
     public function setAuthor($author)
     {

@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new AdminBundle\AdminBundle(),
-            new UserBundle\UserBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
             // SONATA
             // Add your dependencies
