@@ -137,7 +137,7 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
-        $this->slug = $title;
+        $this->slug = AppHelper::slugify($title);
     }
 
     /**

@@ -7,15 +7,17 @@
             <!-- start post -->
             {% for post in posts %}
             <article id="14" class="post tag-getting-started tag-feature featured">
-                <div class="featured">
-                    <i class="fa fa-star"></i>
-                </div>
+                {% if post.featured %}
+                    <div class="featured">
+                        <i class="fa fa-star"></i>
+                    </div>
+                {% endif %}
                 <div class="post-head">
-                    <h2 class="post-title"><a href="welcome-on-futura/index.html">{{ post.title }}</a></h2>
+                    <h2 class="post-title"><a href="{{ path("post", {'slug': post.slug}) }}">{{ post.title }}</a></h2>
                     <div class="post-meta">
-                        <span class="author">By <a href="author/biswajit/index.html">{{ post.author.firstname }} {{ post.author.lastname }}</a></span> &bull;
-                        <span class="date">February 04, 2015</span> &bull;
-                        <span class="comment-count"><a href="welcome-on-futura/index.html#disqus_thread">0 Comments</a></span>
+                        <span class="author">By <a href="{{ path("author", {'username': post.author.username}) }}">{{ post.author.firstname }} {{ post.author.lastname }}</a></span> &bull;
+                        <span class="date">{{ post.updatedAt|date('F d Y') }}</span> &bull;
+                        <span class="comment-count"><a href="{{ path("post", {'slug': post.slug}) }}#disqus_thread">0 Comments</a></span>
                     </div>
                 </div>
 
@@ -23,34 +25,33 @@
                     {{ post.content|truncate(150)|raw }}
                 </dv>
                 <div class="post-permalink">
-                    <a href="welcome-on-futura/index.html" class="btn btn-default">Continue Reading</a>
+                    <a href="{{ path("post", {'slug': post.slug}) }}" class="btn btn-default">Continue Reading</a>
                 </div>
                 <footer class="post-footer clearfix">
                     <div class="pull-left tag-list">
                         <i class="fa fa-folder-open-o"></i>
-                        <a href="tag/getting-started/index.html">Getting Started</a>,<a href="tag/feature/index.html">Feature</a>
+                        <a href="{{ path('category', {'slug': post.category.slug}) }}">{{ post.category.name }}</a>
                     </div>
                     <div class="pull-right share">
                         <ul class="share-icons">
                             <!-- twitter -->
                             <li>
-                                <a href="https://twitter.com/share?text=Welcome%20on%20Futura&amp;url=http://futura-ghost.gbjsolution.com/welcome-on-futura/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
+                                <a href="https://twitter.com/share?text={{ post.title }}&amp;url={{ url("post", {'slug': post.slug}) }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
                             </li>
+
                             <!-- facebook -->
                             <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=http://futura-ghost.gbjsolution.com/welcome-on-futura/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url("post", {'slug': post.slug}) }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i></a>
                             </li>
+
                             <!-- google plus -->
                             <li>
-                                <a href="https://plus.google.com/share?url=http://futura-ghost.gbjsolution.com/welcome-on-futura/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus"></i></a>
+                                <a href="https://plus.google.com/share?url={{ url("post", {'slug': post.slug}) }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus"></i></a>
                             </li>
-                            <!-- pinterest -->
-                            <li>
-                                <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','../assets.pinterest.com/js/pinmarklet2a3b.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><i class="fa fa-pinterest"></i></a>
-                            </li>
+
                             <!-- linkedin -->
                             <li>
-                                <a href="https://www.linkedin.com/shareArticle?mini=true%26url=http://futura-ghost.gbjsolution.com/welcome-on-futura/%26source=http://futura-ghost.gbjsolution.com" onclick="window.open(this.href, 'linkedin-share', 'width=490,height=530');return false;"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true%26url={{ url("post", {'slug': post.slug}) }}%26source=http://cteam-lab.com" onclick="window.open(this.href, 'linkedin-share', 'width=490,height=530');return false;"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>		</div>
                 </footer>

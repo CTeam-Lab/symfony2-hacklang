@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity;
 
+use AppBundle\Helper\AppHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -31,6 +32,28 @@ class Category
     protected $name;
 
     /**
+     * @ORM\Column(name="slug", type="string")
+     * @var string
+     */
+    protected $slug;
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -48,6 +71,7 @@ class Category
     public function setName($name)
     {
         $this->name = $name;
+        $this->slug = AppHelper::slugify($name);
     }
 
     /**

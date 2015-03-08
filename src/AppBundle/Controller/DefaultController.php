@@ -42,11 +42,54 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/post", name="post")
+     * @Route("/post/{slug}", name="post")
      */
-    public function postAction()
+    public function postAction($slug)
     {
-        return $this->render('post.html.twig');
+        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Post');
+        $post = $blogRepo->findOneBySlug($slug);
+
+        if (!$post) {
+            throw new \InvalidArgumentException("Blog Post $slug not found.");
+        }
+
+        return $this->render('post.html.twig', [
+            'post' => $post
+        ]);
+    }
+
+    /**
+     * @Route("/author/{username}", name="author")
+     */
+    public function authorAction($username)
+    {
+        $userRepo = $this->get('doctrine.orm.entity_manager')->getRepository('ApplicationSonataUserBundle:User');
+        $user = $userRepo->findOneByUsername($username);
+
+        if (!$user) {
+            throw new \InvalidArgumentException("Author $username not found.");
+        }
+
+        return $this->render('author.html.twig', [
+           'author' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/category/{slug}", name="category")
+     */
+    public function categoryAction($slug)
+    {
+        $categoryRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Category');
+        $cat = $categoryRepo->findOneBySlug($slug);
+
+        if (!$cat) {
+            throw new \InvalidArgumentException("Category $slug not found.");
+        }
+
+        return $this->render('category.html.twig', [
+            'category' => $cat
+        ]);
     }
 
     /**
