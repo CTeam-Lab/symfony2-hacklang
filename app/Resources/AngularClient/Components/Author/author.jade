@@ -1,0 +1,13 @@
+.about-author
+  a: img(src="author.image", alt="Author image", class="avatar pull-left")
+  .details
+    .author
+      | About&nbsp
+      a(href="#") {{ author.name }}
+    .meta-info
+      span.location
+        i.fa.fa-home {{ author.location }}
+      span.website
+        i.fa.fa-globe
+        a(href="{{ author.website }}", target="_blank") Website
+    .bio {{ author.bio }}
