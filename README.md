@@ -20,5 +20,5 @@ Install NodeJS and then run:
     
 If using Ubuntu (14.04) and installing HHVM 3.6.0 version, add the following line both to HHVM php.ini and server.ini:
 
-  | hhvm.libxml.ext_entity_whitelist = file,http
+    hhvm.libxml.ext_entity_whitelist = file,http
 
