@@ -1,0 +1,19 @@
+nav.main-navigation
+  .container
+    .row
+      .col-sm-12
+        .navbar-header
+          span(class="nav-toggle-button collapsed", data-toggle="collapse", data-target="#main-menu")
+            span.sr-only Toggle navigation
+            i.fa.fa-bars
+        #main-menu.collapse.navbar-collapse
+          ul.menu.list-unstyled
+            li: a(class="active", href="/") Home
+            li
+              a(href="#") Features
+              ul.list-unstyled
+                li: a(href="typography.html") Typography
+                li: a(href="code-highlighting.html") Code Highlighting
+                li: a(href="sample-page.html") Sample Page
+            li: a(href="about.html") About
+            li: a(href="contact.html") Contact
