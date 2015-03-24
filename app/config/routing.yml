@@ -1,5 +1,5 @@
 app:
-    resource: @AppBundle/Controller/
+    resource: @ApplicationFrontendClientBundle/Controller/
     type:     annotation
 
 admin:

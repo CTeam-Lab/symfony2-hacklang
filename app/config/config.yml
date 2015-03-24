@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: @AdminBundle/Resources/config/admin.yml }
+    - { resource: @ApplicationBackendAdminBundle/Resources/config/admin.yml }
 
 fos_user:
     db_driver:      orm

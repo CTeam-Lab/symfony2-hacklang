@@ -1,5 +1,5 @@
 <?php
-namespace AdminBundle\Admin;
+namespace Application\Backend\AdminBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -28,7 +28,7 @@ class PostAdmin extends Admin
             ->add('featured')
             ->add('title')
             ->add('content', null, array('attr' => array('class' => 'ckeditor')))
-            ->add('category')
+            ->add('category', null, ['required' => true])
         ;
     }
 
@@ -74,7 +74,7 @@ class PostAdmin extends Admin
      */
     public function prePersist($post)
     {
-        $post->setCreatedAt('now');
+        $post->setDateCreated('now');
         $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
         $post->setAuthor($user);
 

@@ -1,10 +1,10 @@
 <?php
-namespace AppBundle\Entity;
+namespace Application\Frontend\ClientBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Helper\AppHelper;
+use Application\Frontend\ClientBundle\Helper\AppHelper;
 use Symfony\Component\Validator\Constraints as Assert;
-use UserBundle\Entity\User;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * @package    hhvm
@@ -13,7 +13,7 @@ use UserBundle\Entity\User;
  * @copyright  (c) 2015 Cteam | Ponteiro Team
  *
  *
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PostRepository")
+ * @ORM\Entity(repositoryClass="Repository\PostRepository")
  * @ORM\Table(name="posts")
  * @ORM\Entity
  */
@@ -76,7 +76,7 @@ class Post
     /**
      * @var Category
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category")
+     * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="category", referencedColumnName="id")
      * })

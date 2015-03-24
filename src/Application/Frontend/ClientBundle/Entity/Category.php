@@ -1,7 +1,7 @@
 <?php
-namespace AppBundle\Entity;
+namespace Application\Frontend\ClientBundle\Entity;
 
-use AppBundle\Helper\AppHelper;
+use Application\Frontend\ClientBundle\Helper\AppHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 

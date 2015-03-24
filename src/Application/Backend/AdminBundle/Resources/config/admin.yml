@@ -1,22 +1,22 @@
 services:
     sonata.admin.post:
-        class: AdminBundle\Admin\PostAdmin
+        class: Application\Backend\AdminBundle\Admin\PostAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
         arguments:
             - ~
-            - AppBundle\Entity\Post
+            - Application\Frontend\ClientBundle\Entity\Post
             - ~
         calls:
             - [ setTranslationDomain, [AdminBundle]]
 
     sonata.admin.category:
-        class: AdminBundle\Admin\CategoryAdmin
+        class: Application\Backend\AdminBundle\Admin\CategoryAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category" }
         arguments:
             - ~
-            - AppBundle\Entity\Category
+            - Application\Frontend\ClientBundle\Entity\Category
             - ~
         calls:
             - [ setTranslationDomain, [AdminBundle]]

@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Entity;
+namespace Application\Frontend\ClientBundle\Entity;
 
 /**
  * @package    hhvm

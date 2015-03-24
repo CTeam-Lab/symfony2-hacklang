@@ -23,7 +23,8 @@
         "sonata-project/doctrine-orm-admin-bundle": "~2.3",
         "sonata-project/user-bundle": "~2.2",
         "sonata-project/easy-extends-bundle": "~2.1",
-        "sonata-project/formatter-bundle": "~2.3"
+        "sonata-project/formatter-bundle": "~2.3",
+        "white-october/pagerfanta-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

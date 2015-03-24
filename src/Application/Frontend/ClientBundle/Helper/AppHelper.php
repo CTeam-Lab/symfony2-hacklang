@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Helper;
+namespace Application\Frontend\ClientBundle\Helper;
 
 /**
  * Class AppHelper

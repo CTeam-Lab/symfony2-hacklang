@@ -1,5 +1,5 @@
 <?php
-namespace AdminBundle\Admin;
+namespace Application\Backend\AdminBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;

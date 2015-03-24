@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Controller;
+namespace Application\Frontend\ClientBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,8 +17,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Post');
-        $posts = $blogRepo->findAll();
+        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('ApplicationFrontendClientBundle:Post');
+        $posts = $blogRepo->findBy([], ['dateCreated' => 'DESC']);
 
         return $this->render('default/index.html.twig', [
             'posts' => $posts
@@ -46,7 +46,7 @@ class DefaultController extends Controller
      */
     public function postAction($slug)
     {
-        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Post');
+        $blogRepo = $this->get('doctrine.orm.entity_manager')->getRepository('ApplicationFrontendClientBundle:Post');
         $post = $blogRepo->findOneBySlug($slug);
 
         if (!$post) {
@@ -63,7 +63,7 @@ class DefaultController extends Controller
      */
     public function authorAction($username)
     {
-        $userRepo = $this->get('doctrine.orm.entity_manager')->getRepository('ApplicationSonataUserBundle:User');
+        $userRepo = $this->get('doctrine.orm.entity_manager')->getRepository('ApplicationFrontendClientBundle:User');
         $user = $userRepo->findOneByUsername($username);
 
         if (!$user) {
@@ -80,7 +80,7 @@ class DefaultController extends Controller
      */
     public function categoryAction($slug)
     {
-        $categoryRepo = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Category');
+        $categoryRepo = $this->get('doctrine.orm.entity_manager')->getRepository('ApplicationFrontendClientBundle:Category');
         $cat = $categoryRepo->findOneBySlug($slug);
 
         if (!$cat) {
