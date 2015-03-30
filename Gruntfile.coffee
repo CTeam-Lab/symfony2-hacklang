@@ -1,13 +1,14 @@
 module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-bower-task'
   grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-jade'
+  grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-jscs'
 
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
@@ -44,14 +45,6 @@ module.exports = (grunt) ->
           bowerOptions:
             production: grunt.option('env') || process.env.GRUNT_ENV || 'dev'
 
-    coffee:
-      angular_client:
-        expand: true
-        cwd: '<%= dirs.angular_app %>'
-        src: '**/*.coffee'
-        dest: '<%= dirs.tmp.js.angular_client %>'
-        ext: '.js'
-
     concat:
       vendors:
         files: [
@@ -66,7 +59,7 @@ module.exports = (grunt) ->
         ]
       angular_client:
         files: [
-          '<%= dirs.tmp.js.angular_client %>/angular.js': '<%= dirs.tmp.js.angular_client %>/**/*.js'
+          '<%= dirs.tmp.js.angular_client %>/angular.js': '<%= dirs.angular_app %>/**/*.js'
         ]
       build:
         files: [
@@ -110,6 +103,12 @@ module.exports = (grunt) ->
         src: ['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2', '**/*.otf']
         dest: '<%= dirs.build.fonts %>'
 
+    jshint:
+      src: '<%= dirs.angular_app %>/**/*.js'
+
+    jscs:
+      src: '<%= dirs.angular_app %>/**/*.js'
+
     clean:
       all: '<%= dirs.assets %>'
       tmp: '<%= dirs.tmp.wd %>'
@@ -122,7 +121,7 @@ module.exports = (grunt) ->
         files: ['<%= dirs.angular_app %>/**/*.jade']
         tasks: ['jade']
       angular:
-        files: ['<%= dirs.angular_app %>/**/*.coffee']
+        files: ['<%= dirs.angular_app %>/**/*.js']
         tasks: ['build-angular-client', 'concat:build']
 
 
@@ -136,7 +135,7 @@ module.exports = (grunt) ->
   vendorTasks = ['clean:tmp_js_vendors', 'concat:vendors']
   grunt.registerTask 'build-vendors', vendorTasks
 
-  angularClientTasks = ['clean:tmp_js_angular_client', 'coffee:angular_client', 'concat:angular_client']
+  angularClientTasks = ['clean:tmp_js_angular_client', 'jshint', 'jscs', 'concat:angular_client']
   grunt.registerTask 'build-angular-client', angularClientTasks
 
   javascriptTasks = ['build-vendors', 'build-angular-client', 'concat:build']
