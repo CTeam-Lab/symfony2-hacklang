@@ -1,10 +1,18 @@
 #! /bin/bash
 set -e
 
-SYMFONY_ENV=prod composer install --dev --no-interaction --prefer-source --no-progress
+cd BackendApp
+SYMFONY_ENV=prod composer install --no-interaction --prefer-source --no-progress
 #app/console doctrine:migrations:migrate --no-interaction --env=dev
 app/console doctrine:schema:update --force --env=dev
 app/console assetic:dump web --env=dev
 app/console assets:install web --env=dev
-npm install
-grunt --no-watch
+
+cd ..
+
+#cd FrontendApp
+#npm install
+#grunt bower
+#grunt --no-watch
+
+#cd ..

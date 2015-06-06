@@ -1,0 +1,18 @@
+doctype html
+html(ng-app='ctApp', lang='en', ng-controller='AppController')
+  head
+    base(href='/')
+    meta(charset='utf-8')
+    meta(name='fragment', content='!')
+    meta(name='description', content='{{ metaDescription() }}')
+    meta(name='keywords', content='{{ metaKeywords() }}')
+    meta(name='viewport', content='width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no')
+    title(ng-bind='PageTitle.title()')
+    link(rel='icon', type='image/x-icon', href='{{ MetaInformation.favicon }}')
+    link(rel='canonical' href='/')
+    link(rel='next' href='/')
+    link(rel='alternate', type='application/rss+xml', title='Futura', href='/')
+    link(href='/css/style.css', rel='stylesheet', type='text/css')
+  body(layout="row")
+    ct-header
+    script(src='/js/client.js', type='text/javascript')

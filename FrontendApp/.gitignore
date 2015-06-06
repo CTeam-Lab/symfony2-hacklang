@@ -1,0 +1,7 @@
+# Grunt and Bower
+/node_modules
+/bower_components
+/assets/bower
+
+# Generated app
+/public

@@ -1,0 +1,18 @@
+md-sidenav(class="md-sidenav-left md-whiteframe-z2", md-component-id="main-sidenav" md-is-locked-open="$mdMedia('gt-md')", style="width: 256px; min-width: 256px; max-width: 256px; height: 100%;")
+  header
+    a(class="md-theme-indigo", href="/", flex, layout="column")
+      img(src="img/logo.png", style="height: 125px; width: auto;")
+      h1(style="text-align: center; font-size: 2em;") CTeam Lab
+  md-content(flex)
+    md-button(ng-click="close()", class="md-primary", hide-gt-md)
+      | Close Sidenav Left
+    ul(class="menu-items")
+      li(ng-repeat="section in ctHeader.menu.sections")
+
+        div(flex layout="column" ng-if="section.type === 'toggle'")
+          md-button(style="text-align: left;") {{ section.label }}
+          ul(class="menu-items")
+            li(ng-repeat="page in section.pages")
+              md-button(href="page.href", style="text-align: left;") {{ page.label }}
+
+        md-button(href="section.href", ng-if="section.type === 'link'", style="text-align: left;") {{ section.label }}
