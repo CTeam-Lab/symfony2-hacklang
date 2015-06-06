@@ -52,6 +52,6 @@
 
 # Grunt and Bower
 node_modules
-bower_component
+bower_components
 app/Resources/public/bower
 web/dist

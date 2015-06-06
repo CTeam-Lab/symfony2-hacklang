@@ -1,5 +1,5 @@
 doctype html
-html(ng-app='CTeamLab', lang='en', ng-controller='AppCtrl')
+html(ng-app='app', lang='en', ng-controller='AppController')
   head
     base(href='/')
     meta(charset='utf-8')
@@ -15,7 +15,9 @@ html(ng-app='CTeamLab', lang='en', ng-controller='AppCtrl')
     link(href='/css/style.css', rel='stylesheet', type='text/css')
   body
     header
+        ct-header
     section#body-wrapper
       .container
     footer
+        ct-footer
     script(src='/js/client.js', type='text/javascript')
