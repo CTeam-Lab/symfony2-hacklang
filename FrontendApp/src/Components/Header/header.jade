@@ -1,18 +1,40 @@
-md-sidenav(class="md-sidenav-left md-whiteframe-z2", md-component-id="main-sidenav" md-is-locked-open="$mdMedia('gt-md')", style="width: 256px; min-width: 256px; max-width: 256px; height: 100%;")
-  header
-    a(class="md-theme-indigo", href="/", flex, layout="column")
-      img(src="img/logo.png", style="height: 125px; width: auto;")
-      h1(style="text-align: center; font-size: 2em;") CTeam Lab
-  md-content(flex)
-    md-button(ng-click="close()", class="md-primary", hide-gt-md)
-      | Close Sidenav Left
-    ul(class="menu-items")
-      li(ng-repeat="section in ctHeader.menu.sections")
+md-button(class="md-icon-button md-button")
+    md-icon menu
+div(layout="row", flex, class="fill-height")
+    h2(class="md-toolbar-item")
+        span(hide-sm, hide-md) Breadcrumb 1 >&nbsp;
+        span Breadcrumb 2
+    span(flex)
+    md-button(class="md-icon-button", aria-label="Share", hide-gt-md)
+        md-tooltip(hide-sm, hide-md) Share
+        md-icon share
+    div(layout="row", hide-sm, hide-md)
+        md-button(class="md-icon-button", href="#")
+            md-tooltip Share on Google Plus
+            md-icon plus_one
+        md-button(class="md-icon-button", href="#")
+            md-tooltip Share on Twitter
+            md-icon(md-font-set="socialico-icons") L
+        md-button(class="md-icon-button", href="#")
+            md-tooltip Share on Facebook
+            md-icon(md-font-set="socialico-icons") F
+        md-button(class="md-icon-button", href="#")
+            md-tooltip Share on LinkedIn
+            md-icon(md-font-set="socialico-icons") I
 
-        div(flex layout="column" ng-if="section.type === 'toggle'")
-          md-button(style="text-align: left;") {{ section.label }}
-          ul(class="menu-items")
-            li(ng-repeat="page in section.pages")
-              md-button(href="page.href", style="text-align: left;") {{ page.label }}
+//-header
+  a(class="md-theme-indigo", href="/", flex, layout="column", style="align-items: center;")
+    img(src="img/logo.png", style="height: 160px; width: auto;")
+//-md-content(flex)
+  md-button(ng-click="close()", class="md-primary", hide-gt-md)
+    | Close Sidenav Left
+  ul(class="menu-items" style="margin: 0;")
+    li(ng-repeat="section in ctHeader.menu.sections")
 
-        md-button(href="section.href", ng-if="section.type === 'link'", style="text-align: left;") {{ section.label }}
+      div(flex layout="column" ng-if="section.type === 'toggle'")
+        md-button(style="text-align: left;") {{ section.label }}
+        ul(class="menu-items")
+          li(ng-repeat="page in section.pages")
+            md-button(href="page.href", style="text-align: left;") {{ page.label }}
+
+      md-button(href="section.href", ng-if="section.type === 'link'", style="text-align: left;") {{ section.label }}

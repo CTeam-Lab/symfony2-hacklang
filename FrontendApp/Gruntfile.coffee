@@ -1,14 +1,15 @@
 module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-bower-task'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-concat'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-jade'
-  grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-jscs'
+  grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
@@ -24,6 +25,8 @@ module.exports = (grunt) ->
         wd: 'assets'
         bower: '<%= dirs.assets.wd %>/bower'
         img: '<%= dirs.assets.wd %>/img'
+        sass: '<%= dirs.assets.wd %>/sass',
+        fonts: '<%= dirs.assets.wd %>/fonts'
       angular_app: 'src'
       public: 'public'
       tmp:
@@ -32,6 +35,7 @@ module.exports = (grunt) ->
           wd: '<%= dirs.tmp.wd %>/js'
           angular_client: '<%= dirs.tmp.js.wd %>/angular-client'
           vendors: '<%= dirs.tmp.js.wd %>/vendors'
+        css: '<%= dirs.tmp.wd %>/css'
       build:
         wd: '<%= dirs.public %>/build'
         js: '<%= dirs.build.wd %>/js'
@@ -48,6 +52,13 @@ module.exports = (grunt) ->
           layout: 'byComponent'
           bowerOptions:
             production: grunt.option('env') || process.env.GRUNT_ENV || 'dev'
+
+    compass:
+      dev:
+        options:
+          sassDir: '<%= dirs.assets.sass %>'
+          cssDir: '<%= dirs.tmp.css %>'
+          raw: 'preferred_syntax = :sass\noutput_style = :expanded\nenvironment = :development\n'
 
     concat:
       vendors:
@@ -66,6 +77,20 @@ module.exports = (grunt) ->
         files: [
           '<%= dirs.tmp.js.angular_client %>/angular.js': '<%= dirs.angular_app %>/**/*.js'
         ]
+      build_js:
+        files: [
+          '<%= dirs.build.js %>/client.js': [
+            '<%= dirs.tmp.js.vendors %>/vendor.js',
+            '<%= dirs.tmp.js.angular_client %>/angular.js'
+          ]
+        ]
+      build_css:
+        files: [
+          '<%= dirs.build.css %>/style.css': [
+            '<%= dirs.assets.bower %>/angular-material/angular-material.css',
+            '<%= dirs.tmp.css %>/app.css'
+          ]
+        ]
       build:
         files: [
           '<%= dirs.build.js %>/client.js': [
@@ -73,7 +98,8 @@ module.exports = (grunt) ->
             '<%= dirs.tmp.js.angular_client %>/angular.js'
           ],
           '<%= dirs.build.css %>/style.css': [
-            '<%= dirs.assets.bower %>/angular-material/angular-material.css'
+            '<%= dirs.assets.bower %>/angular-material/angular-material.css',
+            '<%= dirs.tmp.css %>/app.css'
           ]
         ]
 
@@ -108,7 +134,7 @@ module.exports = (grunt) ->
       fonts:
         expand: true
         flatten: true
-        cwd: '<%= dirs.assets.bower %>'
+        cwd: '<%= dirs.assets.fonts %>'
         src: ['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2', '**/*.otf']
         dest: '<%= dirs.build.fonts %>'
 
@@ -120,7 +146,8 @@ module.exports = (grunt) ->
 
     clean:
       all: '<%= dirs.public %>'
-      tmp: '<%= dirs.tmp.wd %>'
+      tmp_css: '<%= dirs.tmp.wd %>/css'
+      tmp_js: '<%= dirs.tmp.wd %>/js'
       tmp_js_vendors: '<%= dirs.tmp.js.vendors %>'
       tmp_js_angular_client: '<%= dirs.tmp.js.angular_client %>'
       build: '<%= dirs.build.wd %>'
@@ -129,10 +156,12 @@ module.exports = (grunt) ->
       jade:
         files: ['<%= dirs.angular_app %>/**/*.jade']
         tasks: ['jade']
+      sass:
+        files: ['<%= dirs.assets.sass %>/**/*.sass']
+        tasks: ['compass', 'concat:build_css']
       angular:
         files: ['<%= dirs.angular_app %>/**/*.js']
-        tasks: ['build-angular-client', 'concat:build']
-
+        tasks: ['build-angular-client', 'concat:build_js']
 
   isDevEnv = ->
     grunt.config.get('env') == 'dev'
@@ -147,12 +176,16 @@ module.exports = (grunt) ->
   angularClientTasks = ['clean:tmp_js_angular_client', 'jshint', 'jscs', 'concat:angular_client']
   grunt.registerTask 'build-angular-client', angularClientTasks
 
-  javascriptTasks = ['build-vendors', 'build-angular-client', 'concat:build']
+  javascriptTasks = ['build-vendors', 'build-angular-client', 'concat:build_js']
   javascriptTasks.push('uglify') unless isDevEnv()
-  javascriptTasks.push('clean:tmp') unless isDevEnv()
+  javascriptTasks.push('clean:tmp_js') unless isDevEnv()
   grunt.registerTask 'javascript', javascriptTasks
 
-  grunt.registerTask 'build', ['clean:all', 'javascript', 'jade', 'copy:img']
+  stylesheetsTasks = ['compass', 'concat:build_css']
+  stylesheetsTasks.push('clean:tmp_css') unless isDevEnv()
+  grunt.registerTask 'stylesheets', stylesheetsTasks
+
+  grunt.registerTask 'build', ['clean:all', 'stylesheets', 'javascript', 'jade', 'copy:img', 'copy:fonts']
 
   defaultTasks = ['build']
   defaultTasks.push('watch') if isDevEnv() && !noWatch()

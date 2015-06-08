@@ -7,7 +7,7 @@
 
   function ctPostDirective() {
     return {
-      restrict: 'E',
+      restrict: 'EA',
       templateUrl: 'Components/Post/post.html',
       scope: {},
       bindToController: true,

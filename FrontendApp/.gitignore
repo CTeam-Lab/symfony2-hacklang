@@ -5,3 +5,6 @@
 
 # Generated app
 /public
+
+# Sass
+/.sass-cache

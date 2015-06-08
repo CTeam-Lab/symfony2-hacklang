@@ -1,0 +1,10 @@
+@function strip-units($value)
+  @if (type-of($value) == "number")
+    @return $value / ($value * 0 + 1)
+  @else
+    @error "$value is not a number"
+
+@function calc-px-to-rem($px-size: $base-line-height)
+  $px-size: strip-units($px-size)
+  $base-px-size: strip-units($base-font-size)
+  @return #{$px-size / $base-px-size}rem
