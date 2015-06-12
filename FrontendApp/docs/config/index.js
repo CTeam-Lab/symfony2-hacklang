@@ -9,22 +9,17 @@ var Package = require('dgeni').Package;
 // the ngdoc, nunjucks, and examples packages defined in the dgeni-packages npm module.
 module.exports = new Package('jovago-client', [
   require('dgeni-packages/ngdoc'),
-  require('dgeni-packages/nunjucks'),
-  require('dgeni-packages/examples')
+  require('dgeni-packages/nunjucks')
 ])
-
 
 // .factory(require('./services/errorNamespaceMap'))
 // .factory(require('./services/getMinerrInfo'))
 .factory(require('./services/getVersion'))
 // .factory(require('./services/gitData'))
 
-// .factory(require('./services/deployments/debug'))
 .factory(require('./services/deployments/default'))
-// .factory(require('./services/deployments/jquery'))
-// .factory(require('./services/deployments/production'))
 
-// .factory(require('./inline-tag-defs/type'))
+.factory(require('./inline-tag-defs/type'))
 
 
 // .processor(require('./processors/error-docs'))
@@ -43,47 +38,28 @@ module.exports = new Package('jovago-client', [
   readFilesProcessor.basePath = path.resolve(packagePath, '../..');
   readFilesProcessor.sourceFiles = [
     { include: 'src/**/*.js', basePath: 'src' },
-    { include: 'docs/content/api/*.ngdoc', basePath: 'docs/content' }
-    // { include: 'docs/content/**/*.ngdoc', basePath: 'docs/content' }
+    { include: 'docs/content/**/*.ngdoc', basePath: 'docs/content' }
   ];
 
-  writeFilesProcessor.outputFolder = 'build/docs';
+  writeFilesProcessor.outputFolder = 'public/build/docs';
 })
-
 
 // .config(function(parseTagsProcessor) {
-//   parseTagsProcessor.tagDefinitions.push(require('./tag-defs/tutorial-step'));
-//   parseTagsProcessor.tagDefinitions.push(require('./tag-defs/sortOrder'));
+  // parseTagsProcessor.tagDefinitions.push(require('./tag-defs/tutorial-step'));
+  // parseTagsProcessor.tagDefinitions.push(require('./tag-defs/sortOrder'));
 // })
 
-
-// .config(function(inlineTagProcessor, typeInlineTagDef) {
-//   inlineTagProcessor.inlineTagDefinitions.push(typeInlineTagDef);
-// })
-
-
-.config(function(templateFinder/*, renderDocsProcessor, gitData*/) {
-  templateFinder.templateFolders.unshift(path.resolve(packagePath, 'templates'));
-  // renderDocsProcessor.extraData.git = gitData;
+.config(function(inlineTagProcessor, typeInlineTagDef) {
+  inlineTagProcessor.inlineTagDefinitions.push(typeInlineTagDef);
 })
 
+.config(function(templateFinder) {
+  templateFinder.templateFolders.unshift(path.resolve(packagePath, 'templates'));
+})
 
-.config(function(computePathsProcessor, computeIdsProcessor) {
-
-  // computePathsProcessor.pathTemplates.push({
-  //   docTypes: ['error'],
-  //   pathTemplate: 'error/${namespace}/${name}',
-  //   outputPathTemplate: 'partials/error/${namespace}/${name}.html'
-  // });
-
-  // computePathsProcessor.pathTemplates.push({
-  //   docTypes: ['errorNamespace'],
-  //   pathTemplate: 'error/${name}',
-  //   outputPathTemplate: 'partials/error/${name}.html'
-  // });
-
+.config(function(computePathsProcessor, computeIdsProcessor, log) {
   computePathsProcessor.pathTemplates.push({
-    docTypes: ['overview', 'tutorial'],
+    docTypes: ['overview'],
     getPath: function(doc) {
       var docPath = path.dirname(doc.fileInfo.relativePath);
       if ( doc.fileInfo.baseName !== 'index' ) {
@@ -94,12 +70,6 @@ module.exports = new Package('jovago-client', [
     outputPathTemplate: 'partials/${path}.html'
   });
 
-  // computePathsProcessor.pathTemplates.push({
-  //   docTypes: ['e2e-test'],
-  //   getPath: function() {},
-  //   outputPathTemplate: 'ptore2e/${example.id}/${deployment.name}_test.js'
-  // });
-
   computePathsProcessor.pathTemplates.push({
     docTypes: ['indexPage'],
     pathTemplate: '.',
@@ -107,10 +77,11 @@ module.exports = new Package('jovago-client', [
   });
 
   computePathsProcessor.pathTemplates.push({
-    docTypes: ['module' ],
+    docTypes: ['module'],
     pathTemplate: '${area}/${name}',
     outputPathTemplate: 'partials/${area}/${name}.html'
   });
+
   computePathsProcessor.pathTemplates.push({
     docTypes: ['componentGroup' ],
     pathTemplate: '${area}/${moduleName}/${groupType}',
@@ -118,56 +89,24 @@ module.exports = new Package('jovago-client', [
   });
 
   computeIdsProcessor.idTemplates.push({
-    docTypes: ['overview', 'tutorial'/*, 'e2e-test'*/, 'indexPage'],
+    docTypes: ['overview', 'indexPage'],
     getId: function(doc) { return doc.fileInfo.baseName; },
     getAliases: function(doc) { return [doc.id]; }
   });
-
-  // computeIdsProcessor.idTemplates.push({
-  //   docTypes: ['error'],
-  //   getId: function(doc) { return 'error:' + doc.namespace + ':' + doc.name; },
-  //   getAliases: function(doc) { return [doc.name, doc.namespace + ':' + doc.name, doc.id]; }
-  // },
-  // {
-  //   docTypes: ['errorNamespace'],
-  //   getId: function(doc) { return 'error:' + doc.name; },
-  //   getAliases: function(doc) { return [doc.id]; }
-  // }
-  // );
 })
 
-// .config(function(checkAnchorLinksProcessor) {
-//   checkAnchorLinksProcessor.base = '/';
-//   // We are only interested in docs that have an area (i.e. they are pages)
-//   checkAnchorLinksProcessor.checkDoc = function(doc) { return doc.area; };
-// })
+.config(function(checkAnchorLinksProcessor) {
+  checkAnchorLinksProcessor.base = '/';
+  // We are only interested in docs that have an area (i.e. they are pages)
+  checkAnchorLinksProcessor.checkDoc = function(doc) { return doc.area; };
+})
 
 
 .config(function(
   generateIndexPagesProcessor,
-  // generateProtractorTestsProcessor,
-  // generateExamplesProcessor,
-  /*debugDeployment, */defaultDeployment//,
-  /*jqueryDeployment, productionDeployment*/) {
-
+  defaultDeployment
+) {
   generateIndexPagesProcessor.deployments = [
-  //   debugDeployment,
-    defaultDeployment//,
-  //   jqueryDeployment,
-  //   productionDeployment
+    defaultDeployment
   ];
-
-  // generateProtractorTestsProcessor.deployments = [
-  //   defaultDeployment,
-  //   jqueryDeployment
-  // ];
-
-  // generateProtractorTestsProcessor.basePath = 'build/docs/';
-
-  // generateExamplesProcessor.deployments = [
-  //   debugDeployment,
-  //   defaultDeployment,
-  //   jqueryDeployment,
-  //   productionDeployment
-  // ];
 });

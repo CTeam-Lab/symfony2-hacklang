@@ -1,14 +1,10 @@
 angular.module('DocsController', [])
 
 .controller('DocsController', [
-          '$scope', '$rootScope', '$location', '$window', '$cookies', 'openPlunkr',
-              'NG_PAGES', 'NG_NAVIGATION', 'NG_VERSION',
-  function($scope, $rootScope, $location, $window, $cookies, openPlunkr,
-              NG_PAGES, NG_NAVIGATION, NG_VERSION) {
-
-  $scope.openPlunkr = openPlunkr;
-
-  $scope.docsVersion = NG_VERSION.isSnapshot ? 'snapshot' : NG_VERSION.version;
+          '$scope', '$rootScope', '$location', '$window', '$cookies',
+              'NG_PAGES', 'NG_NAVIGATION',
+  function($scope, $rootScope, $location, $window, $cookies,
+              NG_PAGES, NG_NAVIGATION) {
 
   $scope.navClass = function(navItem) {
     return {
@@ -18,11 +14,8 @@ angular.module('DocsController', [])
     };
   };
 
-
-
   $scope.$on('$includeContentLoaded', function() {
     var pagePath = $scope.currentPage ? $scope.currentPage.path : $location.path();
-    $window._gaq.push(['_trackPageview', pagePath]);
   });
 
   $scope.$watch(function docsPathWatch() {return $location.path(); }, function docsPathWatchAction(path) {
@@ -43,7 +36,7 @@ angular.module('DocsController', [])
         breadcrumbPath += '/';
       });
     } else {
-      $scope.currentArea = NG_NAVIGATION['api'];
+      $scope.currentArea = NG_NAVIGATION['src'];
       $scope.breadcrumb = [];
       $scope.partialPath = 'Error404.html';
     }
@@ -53,14 +46,9 @@ angular.module('DocsController', [])
    Initialize
    ***********************************/
 
-  $scope.versionNumber = angular.version.full;
-  $scope.version = angular.version.full + "  " + angular.version.codeName;
-  $scope.loading = 0;
-
-
   var INDEX_PATH = /^(\/|\/index[^\.]*.html)$/;
   if (!$location.path() || INDEX_PATH.test($location.path())) {
-    $location.path('/api').replace();
+    $location.path('/src').replace();
   }
 
 }]);

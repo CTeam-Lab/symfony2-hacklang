@@ -1,6 +1,13 @@
 (function() {
   'use strict';
 
+  /**
+   * @ndgoc overview
+   * @name ctApp
+   * @module ctApp
+   * @description
+   * Main module
+   */
   angular
     .module('ctApp', [
       'ctSeo',

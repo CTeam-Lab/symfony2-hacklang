@@ -8,7 +8,7 @@ var path = require('canonical-path');
  * @description
  * This processor creates docs that will be rendered as the index page for the app
  */
-module.exports = function generateIndexPagesProcessor() {
+module.exports = function generateIndexPagesProcessor(log) {
   return {
     deployments: [],
     $validate: {
@@ -17,7 +17,6 @@ module.exports = function generateIndexPagesProcessor() {
     $runAfter: ['adding-extra-docs'],
     $runBefore: ['extra-docs-added'],
     $process: function(docs) {
-
       // Collect up all the areas in the docs
       var areas = {};
       docs.forEach(function(doc) {
@@ -28,7 +27,6 @@ module.exports = function generateIndexPagesProcessor() {
       areas = _.keys(areas);
 
       this.deployments.forEach(function(deployment) {
-
         var indexDoc = _.defaults({
           docType: 'indexPage',
           areas: areas

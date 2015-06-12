@@ -1,6 +1,13 @@
 (function() {
   'use strict';
 
+  /**
+   * @ngdoc service
+   * @name seoMetaFactory
+   * @description
+   *
+   * seoMetaFactory service
+   */
   angular
     .module('ctSeo')
     .factory('seoMetaFactory', seoMetaFactory)

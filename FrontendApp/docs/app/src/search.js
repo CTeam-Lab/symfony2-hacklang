@@ -15,7 +15,7 @@ angular.module('search', [])
         angular.forEach(hits, function(hit) {
           var area = hit.area;
 
-          var limit = (area == 'api') ? 40 : 14;
+          var limit = (area == 'src') ? 40 : 14;
           results[area] = results[area] || [];
           if(results[area].length < limit) {
             results[area].push(hit);
@@ -41,8 +41,8 @@ angular.module('search', [])
 
   $scope.submit = function() {
     var result;
-    if ($scope.results.api) {
-      result = $scope.results.api[0];
+    if ($scope.results.src) {
+      result = $scope.results.src[0];
     } else {
       for(var i in $scope.results) {
         result = $scope.results[i][0];

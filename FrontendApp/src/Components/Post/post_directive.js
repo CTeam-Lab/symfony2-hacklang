@@ -1,6 +1,16 @@
 (function() {
   'use strict';
 
+  /**
+   * @ngdoc directive
+   * @name ctPost
+   * @restrict EA
+   *
+   * @description
+   * Post directive
+   *
+   * @scope
+   */
   angular
     .module('ctPost')
     .directive('ctPost', ctPostDirective);

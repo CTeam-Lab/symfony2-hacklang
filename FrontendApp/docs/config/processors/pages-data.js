@@ -4,11 +4,12 @@ var _ = require('lodash');
 var path = require('canonical-path');
 
 var AREA_NAMES = {
-  api: 'API'//,
-  // guide: 'Developer Guide',
-  // misc: 'Miscellaneous',
-  // tutorial: 'Tutorial',
-  // error: 'Error Reference'\
+  api: 'Api'/*,
+  shared: 'Shared',
+  guide: 'Developer Guide',
+  misc: 'Miscellaneous',
+  tutorial: 'Tutorial',
+  error: 'Error Reference'*/
 };
 
 function getNavGroup(pages, area, pageSorter, pageMapper) {
@@ -41,10 +42,16 @@ function getNavGroup(pages, area, pageSorter, pageMapper) {
  * containing meta information about the pages and navigation
  */
 module.exports = function generatePagesDataProcessor(log) {
-
-
   var navGroupMappers = {
     api: function(areaPages, area) {
+      _(areaPages).filter('module').groupBy('module').map(function(pages, moduleName) {
+        _(pages).groupBy('docType').tap(function(docTypes) {
+          // log.info(moduleName);
+          // log.info(docTypes);
+        });
+
+      });
+
       var navGroups = _(areaPages)
         .filter('module') // We are not interested in docs that are not in a module
 
@@ -147,7 +154,7 @@ module.exports = function generatePagesDataProcessor(log) {
   };
 
   return {
-    $runAfter: ['paths-computed', 'generateKeywordsProcessor'],
+    $runAfter: ['paths-computed'/*, 'generateKeywordsProcessor'*/],
     $runBefore: ['rendering-docs'],
     $process: function(docs) {
 
@@ -156,14 +163,38 @@ module.exports = function generatePagesDataProcessor(log) {
         return doc.area;
       });
 
+      // _.each(pages, function(page, index) {
+      //   log.info(index, page);
+      //   log.error(page.docType);
+      // })
+
       // We are only interested in pages that are not landing pages
       var navPages = _.filter(pages, function(page) {
         return page.docType != 'componentGroup';
       });
 
+      _.each(navPages, function(page, index) {
+        if (index !== 0) {
+          // log.info('---')
+        }
+        // log.info(page.area);
+        // log.info(page.docType);
+      })
+
+      _(navPages).groupBy('area').forEach(function(pages, areaId) {
+        // log.error(areaId);
+        _.each(navPages, function(page, index) {
+          if (index !== 0) {
+            // log.info('---')
+          }
+          // log.info(page.area);
+          // log.info(page.docType);
+        });
+      });
+
       // Generate an object collection of pages that is grouped by area e.g.
-      // - area "api"
-      //  - group "ng"
+      // - area "src"
+      //  - group "components"
       //    - section "directive"
       //    - ngApp
       //    - ngBind
@@ -172,7 +203,7 @@ module.exports = function generatePagesDataProcessor(log) {
       //    - angular.bootstrap
       //    - section "service"
       //    - $compile
-      //  - group "ngRoute"
+      //  - group "shared"
       //    - section "directive"
       //    - ngView
       //    - section "service"

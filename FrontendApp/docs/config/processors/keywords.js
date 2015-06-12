@@ -14,7 +14,7 @@ var path = require('canonical-path');
 module.exports = function generateKeywordsProcessor(log, readFilesProcessor) {
   return {
     ignoreWordsFile: undefined,
-    areasToSearch: ['api', 'guide', 'misc', 'error', 'tutorial'],
+    areasToSearch: ['src'],
     propertiesToIgnore: [],
     $validate: {
       ignoreWordsFile: { },

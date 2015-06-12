@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var log = require('gulp-util').log;
 var concat = require('gulp-concat');
-var jshint = require('gulp-jshint');
+// var jshint = require('gulp-jshint');
 var bower = require('bower');
 var Dgeni = require('dgeni');
 var merge = require('event-stream').merge;
@@ -17,7 +17,7 @@ var rename = require('gulp-rename');
 // Gulp can then wait for the stream to close before starting dependent tasks.
 // See clean and bower for async tasks, and see assets and doc-gen for dependent tasks below
 
-var outputFolder = '../build/docs';
+var outputFolder = '../public/build/docs';
 var bowerFolder = 'bower_components';
 
 var src = 'app/src/**/*.js';
@@ -27,7 +27,8 @@ var copyComponent = function(component, pattern, sourceFolder, packageFile) {
   pattern = pattern || '/**/*';
   sourceFolder = sourceFolder || bowerFolder;
   packageFile = packageFile || 'bower.json';
-  var version = require(path.resolve(sourceFolder,component,packageFile)).version;
+  var version = require(path.resolve(sourceFolder, component, packageFile)).version;
+
   return gulp
     .src(sourceFolder + '/' + component + pattern)
     .pipe(gulp.dest(outputFolder + '/components/' + component + '-' + version));
@@ -81,7 +82,14 @@ gulp.task('assets', ['bower'], function() {
     copyComponent('lunr.js','/*.js'),
     copyComponent('google-code-prettify'),
     copyComponent('jquery', '/dist/*.js'),
-    copyComponent('marked', '/**/*.js', '../node_modules', 'package.json')
+    copyComponent('marked', '/**/*.js', 'node_modules', 'package.json'),
+    copyComponent('angular', '/*.js'),
+    copyComponent('angular-resource', '/*.js'),
+    copyComponent('angular-route', '/*.js'),
+    copyComponent('angular-cookies', '/*.js'),
+    copyComponent('angular-sanitize', '/*.js'),
+    copyComponent('angular-touch', '/*.js'),
+    copyComponent('angular-animate', '/*.js')
   );
 });
 
@@ -93,15 +101,15 @@ gulp.task('doc-gen', ['bower'], function() {
 });
 
 // JSHint the example and protractor test files
-gulp.task('jshint', ['doc-gen'], function() {
-  gulp.src([outputFolder + '/ptore2e/**/*.js', outputFolder + '/examples/**/*.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'));
-});
+// gulp.task('jshint', ['doc-gen'], function() {
+//   gulp.src([outputFolder + '/ptore2e/**/*.js', outputFolder + '/examples/**/*.js'])
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('jshint-stylish'))
+//     .pipe(jshint.reporter('fail'));
+// });
 
 // The default task that will be run if no task is supplied
-gulp.task('default', ['assets', 'doc-gen', 'build-app', 'jshint']);
+gulp.task('default', ['assets', 'doc-gen', 'build-app'/*, 'jshint'*/]);
 
 gulp.task('watch', function() {
   gulp.watch([src, assets], ['assets', 'build-app']);
