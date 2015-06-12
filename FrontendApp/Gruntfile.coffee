@@ -1,12 +1,12 @@
 module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-bower-task'
+  grunt.loadNpmTasks 'grunt-jscs'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-jshint'
-  grunt.loadNpmTasks 'grunt-jscs'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
@@ -184,6 +184,12 @@ module.exports = (grunt) ->
   stylesheetsTasks = ['compass', 'concat:build_css']
   stylesheetsTasks.push('clean:tmp_css') unless isDevEnv()
   grunt.registerTask 'stylesheets', stylesheetsTasks
+
+  grunt.registerTask 'doc-gen', 'Generate documentation using Dgeni', ->
+    Dgeni = require('dgeni')
+    done = @.async()
+    dgeni = new Dgeni([require('./docs/config/index')])
+    dgeni.generate().then(done)
 
   grunt.registerTask 'build', ['clean:all', 'stylesheets', 'javascript', 'jade', 'copy:img', 'copy:fonts']
 
