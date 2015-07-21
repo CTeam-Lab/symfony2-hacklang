@@ -1,3 +1,8 @@
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+    type: rest
+
 app:
     resource: @ApplicationFrontendClientBundle/Controller/
     type:     annotation
@@ -5,6 +10,10 @@ app:
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
 
 _sonata_admin:
     resource: .

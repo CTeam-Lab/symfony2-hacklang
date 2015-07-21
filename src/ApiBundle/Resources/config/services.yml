@@ -1,0 +1,8 @@
+services:
+    api.post_manager:
+        class: ApiBundle\Service\PostManager
+        arguments: [@doctrine.orm.entity_manager]
+
+    api.category_manager:
+        class: ApiBundle\Service\CategoryManager
+        arguments: [@doctrine.orm.entity_manager]

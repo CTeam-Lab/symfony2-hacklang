@@ -1,0 +1,11 @@
+{% block content %}
+    <ul id="post-list">
+        {% for post in posts %}
+            <li>
+                <a href="{{ path('api_1_get_post', {'id': post.id}) }}">{{ post.title }}</a>
+            </li>
+        {% else %}
+            <li>{{ 'post.list.empty'|trans({}, 'AcmeBlogBundle') }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

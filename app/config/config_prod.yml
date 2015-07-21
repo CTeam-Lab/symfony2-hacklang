@@ -11,7 +11,7 @@ imports:
 #        result_cache_driver: apc
 #        query_cache_driver: apc
 twig:
-  cache: "%kernel.logs_dir%
+  cache: %kernel.logs_dir%
   auto_reload: false
 
 monolog:
