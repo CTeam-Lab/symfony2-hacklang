@@ -63,7 +63,9 @@ class PostController extends FOSRestController
         $offset = $paramFetcher->get('offset')?:0;
         $limit = $paramFetcher->get('limit')?:5;
 
-        return $this->get('api.post_manager')->all($limit, $offset);
+        $posts = $this->get('api.post_manager')->all($limit, $offset);
+        
+        return $posts;
     }
 
 }

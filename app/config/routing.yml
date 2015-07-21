@@ -2,12 +2,6 @@ app:
     resource: @ApplicationFrontendClientBundle/Controller/
     type:     annotation
 
-api:
-    resource: "@ApplicationBackendApiBundle/Resources/config/routing.yml"
-    prefix:   /api
-    defaults: { _format: json }
-    type: rest
-
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
@@ -43,3 +37,9 @@ sonata_user_register:
 sonata_user_change_password:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
     prefix: /profile
+
+api:
+    resource: "@ApplicationBackendApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+    type: rest
+    defaults: {_format: json}

@@ -65,6 +65,7 @@ class PostAdmin extends Admin
     public function preUpdate($post)
     {
         $post->setUpdatedAt('now');
+        $post->setAuthor($this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser());
         return $post;
     }
 
