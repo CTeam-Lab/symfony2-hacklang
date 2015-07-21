@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CTeamLab" ng-controller="MainCtrl">
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -60,7 +60,6 @@
         <link rel="alternate" type="application/rss+xml" title="Futura" href="/"/>
     </head>
     <body>
-
         {% include '::header.html.twig' %}
 
         <section class="content-wrap">
@@ -78,5 +77,7 @@
         {% endblock %}
 
         {% include '::footer.html.twig' %}
+
+        <script src="/web/dist/app.js"></script>
     </body>
 </html>
