@@ -4,6 +4,8 @@ imports:
     - { resource: services.yml }
     - { resource: @AdminBundle/Resources/config/admin.yml }
 
+nelmio_api_doc: ~
+
 fos_user:
     db_driver:      orm
     firewall_name:  main
@@ -155,3 +157,27 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_rest:
+    param_fetcher_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            xml:  true
+            json: true
+        templating_formats:
+            html: true
+    format_listener:
+        rules:
+            - { path: ^/, priorities: [ html, json, xml ], fallback_format: ~, prefer_extension: true }
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+    allowed_methods_listener: true
+    access_denied_listener:
+        json: true
+    body_listener: true
+    disable_csrf_role: ROLE_API

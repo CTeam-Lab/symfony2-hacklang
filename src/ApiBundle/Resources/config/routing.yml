@@ -1,0 +1,11 @@
+blog_post:
+    type: rest
+    prefix: /v1
+    resource: 'ApiBundle\Controller\PostController'
+    name_prefix:  api_1_ # naming collision
+
+blog_category:
+    type: rest
+    prefix: /v1
+    resource: 'ApiBundle\Controller\CategoryController'
+    name_prefix:  api_1_ # naming collision
