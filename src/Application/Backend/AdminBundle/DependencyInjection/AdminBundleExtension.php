@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Backend\AdminBundle\\DependencyInjection;
+namespace Application\Backend\AdminBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;

@@ -1,11 +1,12 @@
-api:
-    resource: "@ApiBundle/Resources/config/routing.yml"
-    prefix:   /api
-    type: rest
-
 app:
     resource: @ApplicationFrontendClientBundle/Controller/
     type:     annotation
+
+api:
+    resource: "@ApplicationBackendApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+    defaults: { _format: json }
+    type: rest
 
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

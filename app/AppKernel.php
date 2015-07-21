@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Application\Frontend\ClientBundle\ApplicationFrontendClientBundle(),
             new Application\Backend\AdminBundle\ApplicationBackendAdminBundle(),
+            new Application\Backend\ApiBundle\ApplicationBackendApiBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
             // SONATA
@@ -38,7 +39,6 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            new ApiBundle\ApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

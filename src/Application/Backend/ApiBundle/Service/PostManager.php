@@ -1,8 +1,8 @@
 <?php
-namespace ApiBundle\Service;
+namespace Application\Backend\ApiBundle\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
-use AppBundle\Entity\Repository\PostRepository;
+use Application\Frontend\ClientBundle\Entity\Repository\PostRepository;
 
 /**
  * @package    hhvm
@@ -10,7 +10,7 @@ use AppBundle\Entity\Repository\PostRepository;
  * @author     Jorge Meireles
  * @copyright  (c) 2015 Jovago
  */
-class CategoryManager
+class PostManager
 {
     /**
      * @var EntityManagerInterface
@@ -28,7 +28,7 @@ class CategoryManager
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->repository = $em->getRepository('AppBundle:Category');
+        $this->repository = $em->getRepository('ApplicationFrontendClientBundle:Post');
     }
 
     /**
