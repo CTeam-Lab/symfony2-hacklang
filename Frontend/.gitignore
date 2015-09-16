@@ -1,0 +1,14 @@
+# TypeScript Compiled Files
+App/**/*.js
+App/**/*.js.map
+App/tsd.d.ts
+App/generated.d.ts
+.baseDir.ts
+
+# Grunt, Bower and Build stuff
+node_modules/
+vendors/
+typings/
+build/
+.tscache/
+npm-debug.log

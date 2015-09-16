@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "isolatedModules": false,
+        "jsx": "react",
+        "noLib": false,
+        "preserveConstEnums": true,
+        "outDir": "./build/js",
+        "sourceMap": false,
+        "newLine": "LF"
+    },
+    "filesGlob": [
+        "./App/**/*.ts",
+        "./App/**/*.tsx"
+    ],
+    "files": [
+        "./App/_all.d.ts",
+        "./App/App.module.ts",
+        "./App/Components/Author/Author.module.ts",
+        "./App/Components/Comments/Comments.module.ts",
+        "./App/Components/Components.module.ts",
+        "./App/Components/Footer/Footer.module.ts",
+        "./App/Components/Header/Header.directive.ts",
+        "./App/Components/Header/Header.module.ts",
+        "./App/Components/Post/Post.module.ts",
+        "./App/generated.d.ts",
+        "./App/Main.ts",
+        "./App/tsd.d.ts",
+        "./App/Views/Homepage/Homepage.module.ts",
+        "./App/Views/Views.module.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    },
+    "buildOnSave": false,
+    "compileOnSave": false
+}
