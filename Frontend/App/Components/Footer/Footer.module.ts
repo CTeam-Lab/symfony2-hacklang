@@ -2,8 +2,12 @@
 
 /// <amd-dependency path="angular" />
 
-var angular: ng.IAngularStatic = require('angular');
+import FooterDirective from './Footer.directive';
 
-export var moduleName:string = 'ctFooter';
+var moduleName: string = 'ctFooter';
 
-export var FooterModule: ng.IModule = angular.module(moduleName, []);
+angular
+  .module(moduleName, [])
+  .directive(FooterDirective.Name, FooterDirective.GetDirective);
+
+export default moduleName;

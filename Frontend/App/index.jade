@@ -3,7 +3,8 @@ html(lang='en')
   head
     base(href='/')
     meta(charset='utf-8')
-    meta(name='fragment' content='!')
+    //- NOTE if you have html5Mode enabled
+    //- meta(name='fragment' content='!') 
     //- meta(name='description', content='{{ metaDescription() }}')
     //- meta(name='keywords', content='{{ metaKeywords() }}')
     meta(name='viewport' content='width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no')
@@ -16,9 +17,9 @@ html(lang='en')
     //- link(href='/css/style.css', rel='stylesheet', type='text/css')
   body
     header
-        //- ct-header
+        ct-header
     section#body-wrapper
-      .container(ng-view ng-cloak)
+      .container(ui-view ng-cloak)
     footer
-        //- ct-footer
+        ct-footer
     //- script(src='/js/client.js', type='text/javascript')

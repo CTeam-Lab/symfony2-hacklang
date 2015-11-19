@@ -2,8 +2,12 @@
 
 /// <amd-dependency path="angular" />
 
-var angular: ng.IAngularStatic = require('angular');
+import HeaderDirective from './Header.directive';
 
-export var moduleName:string = 'ctHeader';
+var moduleName: string = 'ctHeader';
 
-export var HeaderModule: ng.IModule = angular.module(moduleName, []);
+angular
+  .module(moduleName, [])
+  .directive(HeaderDirective.Name, HeaderDirective.GetDirective);
+
+export default moduleName;

@@ -4,19 +4,32 @@
 /// <amd-dependency path="angular-ui-router" />
 /// <amd-dependency path="./Templates/Templates" />
 
-import {moduleName as ViewsModuleName} from './Views/Views.module';
-import {moduleName as ComponentsModuleName} from './Components/Components.module';
+import {
+  IApplication
+} from 'ct';
+import RouterModule from './Core/Router.module';
+import CommonComponentsName from './Components/CommonComponents.module';
+import AppRun from './App.run';
+import AppConfiguration from './App.configuration';
+import CustomProvider from './Custom.provider';
 
-var angular = require('angular');
+class Application extends RouterModule implements IApplication {
+  static Dependencies: string[] = [
+    'ui.router',
+    'ctTemplates',
+    CommonComponentsName
+  ];
 
-export var AppModule: ng.IModule = angular
-  .module('ctApp', ['ui.router', 'ctTemplates', ViewsModuleName, ComponentsModuleName])
-  .config(['$locationProvider', '$urlRouterProvider', ($locationProvider: ng.ILocationProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
-    $locationProvider.html5Mode(true).hashPrefix('!');
+  constructor(name: string, baseUrl: string) {
+    super(name, Application.Dependencies);
+    super.config(AppConfiguration);
+    super.run(AppRun);
+    super.provider(CustomProvider);
+  }
 
-    $urlRouterProvider
-      .when('', '/')
-      .otherwise('/');
-  }])
-  .run(['$rootScope', ($rootScope: ng.IRootScopeService) => {
-  }]);
+  bootstrap(): void {
+    angular.bootstrap(document, [this.name()]);
+  }
+}
+
+export = Application;

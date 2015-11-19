@@ -1,12 +1,12 @@
 /// <reference path="../../_all.d.ts"/>
 
-export default class HeaderDirective {
-  static Name: string = 'ctHeader';
+export default class FotterDirective {
+  static Name: string = 'ctFooter';
 
   static GetDirective(): ng.IDirective {
     return {
       restrict: 'E',
-      templateUrl: 'Components/Header/Header.tpl.jade'
+      templateUrl: 'Components/Footer/Footer.tpl.jade'
     };
   }
 }

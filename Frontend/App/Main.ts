@@ -14,8 +14,8 @@ require.config({
   }
 });
 
-require(['angular', 'App.module'], (angular: ng.IAngularStatic) => {
+require(['angular', './App.module', './App.configuration'], (angular: ng.IAngularStatic, App: any, AppConfiguration: any) => {
   angular.element(document).ready(() => {
-    angular.bootstrap(document, ['ctApp']);
+    (<any>new App('ctApp', '/')).bootstrap();
   });
 });
